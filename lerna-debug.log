@@ -1,0 +1,11 @@
+0 silly argv {
+0 silly argv   _: [ 'create' ],
+0 silly argv   lernaVersion: '9.0.7',
+0 silly argv   '$0': 'lerna',
+0 silly argv   name: 'demo1'
+0 silly argv }
+1 notice cli v9.0.7
+2 verbose packageConfigs Resolving packages based on package.json "workspaces" configuration.
+3 verbose rootPath /Users/huahua/Desktop/work/fe-lint
+4 warn ENOREMOTE No git remote found, skipping repository property
+5 error

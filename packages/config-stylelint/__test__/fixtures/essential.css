@@ -1,0 +1,203 @@
+/* 
+ * CSS 代码静态分析示例
+ * 以下代码包含多种常见的 CSS/SCSS 语法错误、不规范写法以及潜在的性能问题。
+ * 注释将逐行或逐块解释每个问题点，对应 Stylelint 等 lint 工具的规则检查项。
+ */
+
+/* 1. 字符集声明 */
+@charset "UTF-8";
+
+/* 
+ * 2. 未知的 At-rule
+ * 规则: at-rule-no-unknown (如果是纯 CSS) 或 scss/at-rule-no-unknown (如果是 SCSS)
+ * 问题: @unknown 不是标准的 CSS 或 SCSS 规则。
+ * 后果: 浏览器会忽略此规则，可能导致预期功能失效。
+ */
+@unknown {}
+
+/* 3. 选择器定义 */
+.a {
+  /* 
+   * 4. 无效的十六进制颜色值
+   * 规则: color-no-invalid-hex
+   * 问题: #fff1az 包含非十六进制字符 'z'，且长度为6位但格式错误。
+   * 后果: 颜色解析失败，该属性无效。
+   */
+  color: #fff1az;
+
+  /* 
+   * 5. 空注释
+   * 规则: comment-no-empty
+   * 问题: /**/ 是一个空注释，没有任何内容。
+   * 建议: 删除空注释或补充说明文字。
+   */
+  /**/
+
+  /* 6. 正常的字体粗细声明 */
+  font-weight: 400;
+
+  /* 
+   * 7. 重复的属性声明
+   * 规则: declaration-block-no-duplicate-properties
+   * 问题: color 属性在此前已经声明过 (#fff1az)。
+   * 注意: 如果配置了 ignore: ['consecutive-duplicates-with-different-values']，
+   *       且两个 color 相邻，则可能被视为合法的 fallback 写法。
+   *       但在此例中，中间隔了其他属性，通常被视为错误。
+   */
+  color: #fff;
+
+  /* 
+   * 8. 简写属性覆盖详细属性
+   * 规则: declaration-block-no-shorthand-property-overrides
+   * 问题: padding-left: 10px 被随后的 padding: 20px 覆盖。
+   * 后果: padding-left 最终变为 20px，之前的 10px 设置无效且造成混淆。
+   * 建议: 移除 padding-left 或调整顺序/使用具体方向属性。
+   */
+  padding-left: 10px;
+  padding: 20px;
+
+  /* 
+   * 9. 重复的字体家族声明
+   * 规则: font-family-no-duplicate-names (针对单个值) 或 declaration-block-no-duplicate-properties (针对整个属性)
+   * 问题: font-family 被声明了两次。
+   * 后果: 只有最后一次声明 (Helvetica...) 生效，第一次 ('Times'...) 无效。
+   */
+  font-family: 'Times', Times, serif;
+  font-family: Helvetica, Arial, Verdana, Tahoma;
+
+  /* 
+   * 10. calc() 函数运算符周围缺少空格
+   * 规则: function-calc-no-unspaced-operator
+   * 问题: calc(1px +2px) 中 '+' 号后面缺少空格（或者前面缺少，标准建议两侧都有）。
+   * 建议: 改为 calc(1px + 2px)。
+   */
+  top: calc(1px +2px);
+
+  /* 
+   * 11. linear-gradient 使用非标准方向关键词
+   * 规则: function-linear-gradient-no-nonstandard-direction
+   * 问题: 'bottom' 是旧版 Webkit 或非标准写法。
+   * 标准: 应使用 'to top' (因为 gradient 是从下往上画，所以方向是 to top) 或者角度。
+   * 注意: 现代标准中，linear-gradient(to top, ...) 表示从底部开始向顶部渐变。
+   *       如果意图是从上到下，应为 'to bottom'。旧版 'bottom' 通常意指从底部开始，即向顶部渐变。
+   *       此处主要问题是语法不标准，建议改为标准方向值如 'to top' 或 'to bottom'。
+   */
+  background: linear-gradient(bottom, #fff, #000);
+}
+
+/* 
+ * 12. Keyframes 中使用 !important
+ * 规则: keyframe-declaration-no-important
+ * 问题: 在 @keyframes 内部，margin-top: 100px !important; 使用了 !important。
+ * 后果: !important 在 keyframes 中通常被忽略或导致不可预测的行为，且是不必要的。
+ */
+@keyframes important1 {
+  from {
+    margin-top: 50px;
+  }
+  to {
+    margin-top: 100px !important;
+  }
+}
+
+/* 
+ * 13. 未知的媒体查询特性
+ * 规则: media-feature-name-no-unknown
+ * 问题: @media screen and (unknown) 中的 'unknown' 不是有效的媒体特性名称。
+ * 后果: 整个媒体查询块可能被忽略。
+ */
+@media screen and (unknown) {
+  .a {
+    color: #fff;
+  }
+}
+
+/* 
+ * 14. 重复的 @import 规则
+ * 规则: no-duplicate-at-import-rules
+ * 问题: @import 'a.css'; 出现了两次。
+ * 后果: 可能导致样式文件被请求两次，浪费网络资源，或导致样式应用顺序混乱。
+ */
+@import 'a.css';
+@import 'a.css';
+
+/* 15. 另一个选择器块 */
+.a {
+  /* 
+   * 16. 多余的分号
+   * 规则: no-extra-semicolons
+   * 问题: background: #000;; 末尾有两个分号。
+   * 后果: 虽然浏览器通常能容错，但这属于语法噪音。
+   */
+  background: #000;;
+
+  /* 
+   * 17. 未知的属性名
+   * 规则: property-no-unknown
+   * 问题: colr: blue; 拼写错误，应为 color。
+   * 后果: 该属性被忽略，文字颜色不会变为蓝色。
+   */
+  colr: blue;
+}
+
+/* 
+ * 18. 无效的双斜杠注释
+ * 规则: no-invalid-double-slash-comments
+ * 问题: // css注释 是 SCSS/Less/JS 风格的注释，在标准 CSS 中无效。
+ * 后果: 如果文件是 .css 且未通过预处理器，这会导致解析错误或后续样式失效。
+ * 建议: 改为 /* css注释 */
+ */
+// css注释
+
+/* 
+ * 19. 未知的伪类选择器
+ * 规则: selector-pseudo-class-no-unknown
+ * 问题: .b:unknown 中的 :unknown 不是标准的 CSS 伪类（如 :hover, :focus）。
+ * 后果: 选择器无效，样式不会应用到任何元素。
+ */
+.b:unknown {
+  background: #000;
+}
+
+/* 
+ * 20. 未知的伪元素选择器
+ * 规则: selector-pseudo-element-no-unknown
+ * 问题: .b::unknown 中的 ::unknown 不是标准的 CSS 伪元素（如 ::before, ::after）。
+ * 后果: 选择器无效。
+ */
+.b::unknown {
+  background: #000;
+}
+
+/* 
+ * 21. 未知的类型选择器
+ * 规则: selector-type-no-unknown (如果开启)
+ * 问题: unknown { ... } 假设 'unknown' 是一个 HTML 标签，但它不是标准标签。
+ * 注意: 如果是 Web Components 自定义元素，通常应包含连字符（如 my-element）。
+ */
+unknown {
+  /* 
+   * 22. 字符串中包含换行符
+   * 规则: string-no-newline
+   * 问题: content: "first\n    second"; 字符串跨行了。
+   * 后果: 在标准 CSS 中，字符串不能直接换行，除非使用转义符或拼接。这会导致解析错误。
+   */
+  content: "first
+    second";
+
+  /* 
+   * 23. 未知的单位
+   * 规则: unit-no-unknown
+   * 问题: 10pixels 不是有效的 CSS 单位。
+   * 建议: 应为 10px。
+   */
+  width: 10pixels;
+
+  /* 
+   * 24. 缺少分号
+   * 规则: declaration-block-trailing-semicolon
+   * 问题: background: #000 后面缺少分号。
+   * 后果: 如果后面还有属性，会导致解析错误；即使是最后一个属性，也建议加上分号以保持一致性。
+   */
+  background: #000
+}

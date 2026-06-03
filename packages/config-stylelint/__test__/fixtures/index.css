@@ -1,0 +1,106 @@
+css
+/* 
+ * CSS 代码风格与规范检查示例
+ * 以下代码展示了多种常见的 CSS 格式不规范、冗余写法及潜在错误。
+ * 注释将指出每个问题点，并说明对应的 Stylelint 规则或最佳实践。
+ */
+
+/* 
+ * 1. 选择器 .foo
+ * 问题: 缩进不一致（假设标准缩进为2空格，此处为4空格）。
+ * 颜色: #abc 是合法的简写十六进制颜色。
+ */
+.foo {
+    color: #abc;
+}
+
+/* 
+ * 2. 选择器 .selector
+ * 问题: 
+ *   - 单行样式块。如果配置了 'block-opening-brace-newline-after': 'always-multi-line' 或强制多行，这可能违规。
+ *   - 左大括号前缺少空格 (.selector{ 应为 .selector {)。规则: block-opening-brace-space-before
+ *   - 属性后缺少空格 (padding-left:15px 应为 padding-left: 15px)。规则: declaration-colon-space-after
+ */
+.selector{padding-left: 15px;}
+
+/* 
+ * 3. 选择器 .selector1
+ * 问题:
+ *   - 冒号前有多余空格 (padding-left :15px)。规则: declaration-colon-space-before (应为 never)
+ *   - 冒号后缺少空格 (:15px)。规则: declaration-colon-space-after (应为 always)
+ *   - background-size: 0,0 中逗号后缺少空格。规则: value-list-comma-space-after
+ *   - 长度为零时带了单位 (0rem)。规则: length-zero-no-unit (建议改为 0)
+ */
+.selector1 {
+  padding-left :15px;
+
+  background-size: 0,0;
+}
+
+/* 
+ * 4. 选择器 .selector2
+ * 问题: 
+ *   - 左大括号后没有换行，但右大括号换行了。格式不统一。
+ *   - 如果配置要求单行块必须在一行内结束，或者多行块必须完全换行，这会报错。
+ */
+.selector2 {padding-left: 15px;
+}
+
+/* 
+ * 5. 选择器 .selector3
+ * 问题:
+ *   - 右大括号前没有空格或换行不符合某些风格指南。
+ *   - 通常要求右大括号单独占一行 (block-closing-brace-newline-before)。
+ */
+.selector3 {
+  padding-left: 15px;}
+
+/* 
+ * 6. 选择器 .selector4
+ * 问题:
+ *   - 单行中包含多个属性。如果配置了 'declaration-block-single-line-max-declarations': 1，则违规。
+ *   - 颜色 pink 是命名颜色，某些严格配置可能要求使用十六进制或 RGB。
+ */
+.selector4 { color: pink; top: 3px; }
+
+/* 
+ * 7. 选择器 .selector5
+ * 问题:
+ *   - width: 0rem 使用了单位。规则: length-zero-no-unit (应改为 0)
+ *   - color: #AAA 未使用小写。规则: color-hex-case (应改为 #aaa)
+ *   - color: #AAA 未使用简写。规则: color-hex-length (应改为 #aaa，虽然这里已经是3位，但大小写不对)
+ *   - background: #aaaaaa 未使用简写。规则: color-hex-length (应改为 #aaa)
+ *   - 注意: #AAA 和 #aaaaaa 表示相同的颜色，但格式不统一。
+ */
+.selector5 {
+  width: 0rem;
+
+  color: #AAA;
+  background: #aaaaaa;
+}
+
+/* 
+ * 8. ID 选择器 #foo
+ * 问题:
+ *   - 使用 ID 选择器。规则: selector-max-id (通常建议设为 0，因为 ID 特异性太高，不利于维护和复用)
+ *   - 颜色 #ccc 未使用简写? 不，#ccc 已经是简写。但如果配置要求小写，需检查大小写。
+ */
+#foo {
+  color: #ccc;
+}
+
+/* 
+ * 9. 注释
+ * 问题:
+ *   - /*comment */ 注释内部左侧缺少空格。规则: comment-whitespace-inside (应为 /* comment */)
+ */
+/*comment */
+
+/* 
+ * 10. 未知的 At-rule 和函数
+ * 问题:
+ *   - @unkown 不是标准的 CSS 或 SCSS 规则。规则: at-rule-no-unknown
+ *   - colorTag(#abc) 看起来像是一个自定义函数调用，但在标准 CSS 中无效。如果是 SCSS/Less 函数，需确保插件支持。
+ *   - 如果这是 SCSS，@unkown 会被 scss/at-rule-no-unknown 捕获。
+ */
+@unkown colorTag(#abc);

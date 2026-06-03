@@ -1,0 +1,22 @@
+{
+  "name": "encode-fe-lint",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "homepage": "",
+  "license": "ISC",
+  "author": "chenweita <1320673491@qq.com>",
+  "main": "lib/encode-fe-lint.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "node ./__tests__/encode-fe-lint.test.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.tangees.com/"
+  }
+}

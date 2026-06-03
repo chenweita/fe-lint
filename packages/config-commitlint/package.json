@@ -1,0 +1,25 @@
+{
+  "name": "config-commitlint",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "homepage": "",
+  "license": "ISC",
+  "author": "chenweita <1320673491@qq.com>",
+  "main": "lib/config-commitlint.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "node ./__tests__/config-commitlint.test.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.tangees.com/"
+  },
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^4.5.0"
+  }
+}

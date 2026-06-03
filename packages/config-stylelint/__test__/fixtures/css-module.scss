@@ -1,0 +1,130 @@
+/* 
+ * 全局样式覆盖与组件定制
+ * 注意：使用了 :global() 语法，通常用于 CSS Modules 或 Less/Sass 环境中，
+ * 以逃逸局部作用域，直接修改第三方库（如 Ant Design）的全局类名样式。
+ */
+
+/* 
+ * 1. 时间轴 (Timeline) 组件定制
+ * 类名: .commits
+ * 用途: 用于展示提交记录或其他时间序列数据，优化长文本显示效果。
+ */
+ .commits {
+  /* 移除容器默认内边距，使内容更紧凑 */
+  padding: 0;
+
+  /* 
+   * 选择器: :global(.ant-timeline-item-content)
+   * 目标: Ant Design Timeline 组件的内容区域
+   * 作用: 控制文本溢出时的显示方式，并设置特定颜色
+   */
+  :global(.ant-timeline-item-content) {
+    /* 隐藏超出容器宽度的内容 */
+    overflow: hidden;
+    /* 当文本溢出时，显示省略号 (...) */
+    text-overflow: ellipsis;
+    /* 强制文本不换行，保持单行显示 */
+    white-space: nowrap;
+    /* 设置文本颜色为浅黄色 (#fff1aa)，常用于深色主题下的高亮或次要信息 */
+    color: #fff1aa;
+
+    /* 
+     * 子选择器: &>span
+     * 目标: 内容区域内的直接子元素 span
+     * 作用: 调整间距并禁止用户选中该部分文本
+     */
+    &>span {
+      /* 右侧保留 20px 间距，避免文字紧贴边缘或与其他元素重叠 */
+      margin-right: 20px;
+      /* 再次确保 span 内部文本不换行 */
+      white-space: nowrap;
+      /* 禁止用户通过鼠标或键盘选中这段文字，提升 UI 交互体验（如作为标签或图标说明时） */
+      user-select: none;
+    }
+  }
+}
+
+/* 
+ * 2. 树形控件 (Tree) 节点高亮定制
+ * 类名: :global(.tree-node-yellow)
+ * 用途: 自定义全局类名，用于强制将特定的树节点文字标黄，常用于标记警告、重点或特殊状态。
+ */
+:global(.tree-node-yellow) {
+  /* 
+   * 选择器: :global(.ant-tree-node-content-wrapper)
+   * 目标: Ant Design Tree 节点的内容包裹层
+   * 作用: 覆盖默认文字颜色
+   */
+  :global(.ant-tree-node-content-wrapper) {
+    /* 
+     * 使用 CSS 变量 var(--color-yellow) 获取主题定义的黄色
+     * !important: 强制提升优先级，确保能覆盖 Ant Design 默认的高特异性样式
+     */
+    color: var(--color-yellow) !important;
+  }
+}
+
+/* 
+ * 3. 树形控件 (Tree) 布局与溢出处理
+ * 选择器组: 
+ *   - :global(.ant-tree-treenode-switcher-close): 折叠状态的树节点开关
+ *   - :global(.tree-node-file): 自定义的文件类型节点类名
+ * 用途: 统一处理这两类节点的 Flex 布局，解决长文本溢出问题，确保图标不被压缩。
+ */
+:global(.ant-tree-treenode-switcher-close), :global(.tree-node-file) {
+  /* 使用 Flex 布局排列子元素（开关、图标、文字） */
+  display: flex;
+  /* 隐藏超出节点宽度的内容，配合内部元素的 ellipsis 使用 */
+  overflow: hidden;
+
+  /* 
+   * 子元素: :global(.ant-tree-switcher)
+   * 目标: 树节点的展开/折叠开关图标
+   */
+  :global(.ant-tree-switcher) {
+    /* flex-shrink: 0 防止开关图标在空间不足时被压缩变形，保持原始大小 */
+    flex-shrink: 0;
+  }
+  
+  /* 
+   * 子元素: :global(.ant-tree-node-content-wrapper)
+   * 目标: 节点内容的包裹层
+   * 作用: 允许内容区域收缩，并重新定义其内部布局
+   */
+  :global(.ant-tree-node-content-wrapper) {
+    /* flex-shrink: 1 允许内容区域在空间不足时收缩，从而触发文字省略 */
+    flex-shrink: 1;
+    /* 
+     * !important: 强制改为 inline-flex，以便内部元素（图标和标题）能正确横向排列
+     * Ant Design 默认可能是 block 或其他布局，此处需强制覆盖以适配自定义结构
+     */
+    display: inline-flex !important;
+    /* 隐藏超出包裹层的内容 */
+    overflow: hidden;
+
+    /* 
+     * 孙元素: :global(.ant-tree-iconEle)
+     * 目标: 节点前的自定义图标（如文件图标、文件夹图标）
+     */
+    :global(.ant-tree-iconEle) {
+      /* flex-shrink: 0 防止图标被压缩，保持清晰可见 */
+      flex-shrink: 0;
+    }
+   
+    /* 
+     * 孙元素: :global(.ant-tree-title)
+     * 目标: 节点的标题文字部分
+     * 作用: 实现文字的单行截断省略效果
+     */
+    :global(.ant-tree-title) {
+      /* flex-shrink: 1 允许标题部分收缩，占据剩余空间 */
+      flex-shrink: 1;
+      /* 隐藏超出标题容器的文字 */
+      overflow: hidden;
+      /* 当文字溢出时，显示省略号 (...) */
+      text-overflow: ellipsis;
+      /* 注意：此处通常还需要配合 white-space: nowrap 才能生效，
+         若 Antd 默认已设置则无需重复，若未生效需在此补充 white-space: nowrap */
+    }
+  }
+}

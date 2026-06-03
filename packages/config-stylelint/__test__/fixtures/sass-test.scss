@@ -1,0 +1,69 @@
+/* 
+ * SCSS (Sass) 代码示例解析
+ * 以下代码展示了 Sass 的 Mixin 定义、调用、变量运算以及常见的语法错误。
+ */
+
+/* 
+ * 1. Mixin 定义
+ * 定义了一个名为 colorTag 的混入（Mixin），它接受两个参数：$color1 和 $color2。
+ * Mixin 类似于函数，可以复用一组 CSS 声明。
+ */
+ @mixin colorTag ($color1, $color2) {
+  /* 将第一个参数赋值给 color 属性 */
+  color: $color1;
+  /* 将第二个参数赋值给 border-color 属性 */
+  border-color: $color2;
+}
+
+/* 
+ * 2. 注释
+ * // 是 SCSS 支持的单行注释，这种注释在编译生成的 CSS 文件中会被移除（除非使用压缩模式外的特定配置）。
+ */
+//css注释
+
+/* 
+ * 3. 选择器 .a
+ */
+.a {
+  /* 
+   * 4. 变量运算与潜在问题
+   * width: $default-width /2;
+   * 
+   * 问题分析：
+   * 1. 变量未定义：$default-width 在此代码片段中未定义。如果上级作用域也没有定义该变量，编译时将报错 "Undefined variable"。
+   * 2. 除法运算符：在较新版本的 Dart Sass (1.33.0+) 中，/ 不再默认作为除法运算符，而是被视为字面量分隔符（用于 font 或 grid 等简写属性）。
+   *    - 如果意图是进行数学除法，应使用 math.div($default-width, 2) 函数，或者确保操作数是带单位的数字且上下文明确。
+   *    - 如果 $default-width 是像 "100px" 这样的字符串或未带单位的数字，直接写 /2 可能会生成无效的 CSS 或警告。
+   *    - 建议写法：width: math.div($default-width, 2); （需先 @use "sass:math";）
+   */
+  width: $default-width /2;
+
+  /* 
+   * 5. Mixin 调用
+   * @include colorTag(#abc,#bcd);
+   * 
+   * 解释：
+   * 调用之前定义的 colorTag mixin。
+   * 参数传递：$color1 被赋值为 #abc，$color2 被赋值为 #bcd。
+   * 编译结果：
+   *   color: #abc;
+   *   border-color: #bcd;
+   * 注意：参数之间建议添加空格以提高可读性，如 @include colorTag(#abc, #bcd);
+   */
+  @include colorTag(#abc,#bcd);
+
+  /* 
+   * 6. 错误的 At-rule 使用
+   * @unkown colorTag(#abc);
+   * 
+   * 问题分析：
+   * 1. 未知的 At-rule：@unkown 不是标准的 CSS 或 SCSS 规则。SCSS 编译器会报错 "Unknown at rule @unkown"。
+   * 2. 语法混淆：看起来作者可能想再次调用 mixin，但 mixin 的调用方式是 @include，而不是 @ 开头的新规则。
+   * 3. 参数错误：即使假设这是一个自定义指令，colorTag(#abc) 只传了一个参数，而定义需要两个。
+   * 
+   * 修正建议：
+   * 如果意图是调用 mixin，应写为：@include colorTag(#abc, #someOtherColor);
+   * 如果这是一行无效代码，应直接删除。
+   */
+  @unkown colorTag(#abc);
+}
