@@ -10,7 +10,8 @@
     "lerna": "^9.0.7",
     "markdownlint": "^0.28.2",
     "stylelint": ">=8.3.0",
-    "stylelint-scss": ">=2.0.0"
+    "stylelint-scss": ">=2.0.0",
+    "vuepress": "^1.9.10"
   },
   "dependencies": {
     "conventional-changelog-conventionalcommits": "^4.5.0"
