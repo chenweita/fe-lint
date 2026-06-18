@@ -1,0 +1,79 @@
+/**
+ * tsconfig.json 配置文件解析
+ * 该配置适用于构建一个兼容性强、面向 Node.js 环境的 TypeScript 库或后端项目。
+ */
+{
+  "compilerOptions": {
+    /**
+     * outDir: 指定编译后输出文件的目录。
+     * "./lib" 表示所有生成的 .js 和 .d.ts 文件将存放在项目根目录下的 lib 文件夹中。
+     * 通常会在 .gitignore 中忽略此目录，因为它是由源码自动生成的。
+     */
+    "outDir": "./lib",
+
+    /**
+     * target: 指定编译后的 JavaScript 版本目标。
+     * "ES5" 表示代码将被转译为 ECMAScript 5 标准。
+     * 优点：兼容性极高，可在非常老旧的浏览器或 Node.js 版本中运行。
+     * 缺点：无法使用原生 Promise、async/await 等现代特性（除非引入 polyfill），且代码体积较大。
+     */
+    "target": "ES5",
+
+    /**
+     * module: 指定模块系统标准。
+     * "commonjs" 表示使用 Node.js 传统的 require/module.exports 机制。
+     * 配合 target: ES5 使用，确保生成的代码能在大多数 Node.js 环境中直接运行，无需额外打包工具处理模块语法。
+     */
+    "module": "commonjs",
+
+    /**
+     * esModuleInterop: 启用 ES 模块与 CommonJS 模块的互操作性辅助函数。
+     * true: 允许使用 import default from 'module' 语法导入 CommonJS 模块（如 React、Lodash）。
+     * 它会自动生成 __importDefault 等辅助代码，解决默认导入为 undefined 的问题，并隐式启用 allowSyntheticDefaultImports。
+     */
+    "esModuleInterop": true,
+
+    /**
+     * removeComments: 编译时是否移除注释。
+     * true: 输出的 JavaScript 文件中不包含任何注释。
+     * 作用：减小发布包的体积，因为库的用户通常不需要阅读源码注释，而是依赖类型定义和文档。
+     */
+    "removeComments": true,
+
+    /**
+     * resolveJsonModule: 允许导入 JSON 文件。
+     * true: 可以使用 import data from './config.json' 语法。
+     * TypeScript 会自动推断 JSON 的结构类型，提供智能提示和类型检查。
+     */
+    "resolveJsonModule": true,
+
+    /**
+     * declaration: 是否生成声明文件 (.d.ts)。
+     * true: 编译时会为每个 .ts 文件生成对应的 .d.ts 文件。
+     * 作用：对于发布到 npm 的库至关重要，它让其他 TypeScript 项目在使用该库时能获得完整的类型提示和检查，而无需查看源码。
+     */
+    "declaration": true,
+
+    /**
+     * downlevelIteration: 降级迭代支持。
+     * true: 当 target 为 ES5 或 ES3 时，确保 for...of 循环、展开运算符 (...) 和解构赋值能正确处理迭代器。
+     * 作用：ES5 原生不支持 Symbol.iterator，开启此项会注入必要的 polyfill 逻辑，确保这些现代语法在旧环境中正常工作。
+     */
+    "downlevelIteration": true,
+
+    /**
+     * types: 指定要包含的类型定义包。
+     * ["node"]: 仅引入 @types/node 的全局类型定义。
+     * 作用：限制全局命名空间，使编译器识别 process、__dirname、Buffer 等 Node.js 全局变量。
+     * 同时，如果代码中使用了浏览器特有的 API（如 window、document），编译器会报错，防止在后端项目中误用前端 API。
+     */
+    "types": ["node"]
+  },
+
+  /**
+   * include: 指定需要编译的文件或目录模式。
+   * ["src"]: 只编译 src 目录下的所有文件。
+   * 作用：排除测试文件（test/__tests__）、配置文件或其他非业务源码，提高编译效率并避免不必要的类型检查错误。
+   */
+  "include": ["src"]
+}

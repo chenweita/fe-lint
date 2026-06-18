@@ -1,28 +1,21 @@
-# `config-stylelint`
+# encode-fe-markdownlint-config
 
-> TODO: description
+支持配套的 [stylelint 可共享配置](https://stylelint.io/user-guide/configure)。
 
-## Usage
-
-```
-const configStylelint = require('config-stylelint');
-
-// TODO: DEMONSTRATE API
-```
 ## 安装
 
-需要先行安装 [markdownlint](https://www.npmjs.com/package/markdownlint)：
+需要先行安装 [stylelint](https://www.npmjs.com/package/stylelint) 和 [stylelint-scss](https://www.npmjs.com/package/stylelint-scss)：
 
 ```bash
-npm install encode-fe-markdownlint-config markdownlint --save-dev
+npm install encode-fe-stylelint-config stylelint stylelint-scss --save-dev
 ```
 
 ## 使用
 
-在 `.markdownlint.json` 中继承本包:
+在 `.stylelintrc` 中继承本包:
 
 ```json
 {
-	"extends": "encode-fe-markdownlint-config"
+  "extends": "encode-fe-stylelint-config"
 }
 ```

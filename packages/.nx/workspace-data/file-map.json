@@ -1,0 +1,620 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.7.5",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": "config-commitlint/README.md",
+        "hash": "13370612094056753776"
+      },
+      {
+        "file": "config-commitlint/__tests__/config-commitlint.test.js",
+        "hash": "4042445099770371781"
+      },
+      {
+        "file": "config-commitlint/index.js",
+        "hash": "17536223279084783049"
+      },
+      {
+        "file": "config-commitlint/lib/config-commitlint.js",
+        "hash": "1723689081074740881"
+      },
+      {
+        "file": "config-commitlint/package.json",
+        "hash": "14585424132133458151"
+      },
+      {
+        "file": "config-eslint/README.md",
+        "hash": "10277078136917902697"
+      },
+      {
+        "file": "config-eslint/__tests__/fixtures/css-module.scss",
+        "hash": "6378870937120466735"
+      },
+      {
+        "file": "config-eslint/__tests__/fixtures/essential.css",
+        "hash": "5884620931839654889"
+      },
+      {
+        "file": "config-eslint/__tests__/fixtures/index.css",
+        "hash": "5121887606960071488"
+      },
+      {
+        "file": "config-eslint/__tests__/fixtures/less-test.less",
+        "hash": "6601489764832511712"
+      },
+      {
+        "file": "config-eslint/__tests__/fixtures/sass-test.scss",
+        "hash": "3791774118553835058"
+      },
+      {
+        "file": "config-eslint/__tests__/rules-validate.test.js",
+        "hash": "14291338804192164453"
+      },
+      {
+        "file": "config-eslint/index.js",
+        "hash": "11039122144216732453"
+      },
+      {
+        "file": "config-eslint/package.json",
+        "hash": "920542407736227617"
+      },
+      {
+        "file": "config-markdownlint/README.md",
+        "hash": "5226694342052250979"
+      },
+      {
+        "file": "config-markdownlint/index.js",
+        "hash": "17038092683175565375"
+      },
+      {
+        "file": "config-markdownlint/index.json",
+        "hash": "12335269604071115921"
+      },
+      {
+        "file": "config-markdownlint/package.json",
+        "hash": "1435609381286705263"
+      },
+      {
+        "file": "config-stylelint/README.md",
+        "hash": "5912729946757658699"
+      },
+      {
+        "file": "config-stylelint/__test__/fixtures/css-module.scss",
+        "hash": "3146147520433691779"
+      },
+      {
+        "file": "config-stylelint/__test__/fixtures/essential.css",
+        "hash": "10674681572850984098"
+      },
+      {
+        "file": "config-stylelint/__test__/fixtures/index.css",
+        "hash": "15635144715922471582"
+      },
+      {
+        "file": "config-stylelint/__test__/fixtures/less-test.less",
+        "hash": "7477175612595413137"
+      },
+      {
+        "file": "config-stylelint/__test__/fixtures/sass-test.scss",
+        "hash": "2970216555826257039"
+      },
+      {
+        "file": "config-stylelint/__test__/rules-validate.test.js",
+        "hash": "6527162930201832223"
+      },
+      {
+        "file": "config-stylelint/index.js",
+        "hash": "7265922005215997188"
+      },
+      {
+        "file": "config-stylelint/package.json",
+        "hash": "10593710138534606171"
+      },
+      {
+        "file": "demo/README.md",
+        "hash": "10514759923924171854"
+      },
+      {
+        "file": "demo/__tests__/demo.test.js",
+        "hash": "5551494437919552065"
+      },
+      {
+        "file": "demo/lib/demo.js",
+        "hash": "14378345680587755154"
+      },
+      {
+        "file": "demo/package.json",
+        "hash": "10216136297824743088"
+      },
+      {
+        "file": "encode-fe-lint/.eslintignore",
+        "hash": "9657419834506662263"
+      },
+      {
+        "file": "encode-fe-lint/.eslintrc.js",
+        "hash": "8288780442141830336"
+      },
+      {
+        "file": "encode-fe-lint/.gitignore",
+        "hash": "17085979349798887375"
+      },
+      {
+        "file": "encode-fe-lint/.prettierrc.js",
+        "hash": "16986956229443459438"
+      },
+      {
+        "file": "encode-fe-lint/README.md",
+        "hash": "6878080493904106345"
+      },
+      {
+        "file": "encode-fe-lint/package.json",
+        "hash": "11962589296482886859"
+      },
+      {
+        "file": "encode-fe-lint/src/actions/init.ts",
+        "hash": "16432623848124542330"
+      },
+      {
+        "file": "encode-fe-lint/src/actions/scan.ts",
+        "hash": "8774815845269711691"
+      },
+      {
+        "file": "encode-fe-lint/src/actions/update.ts",
+        "hash": "12013667552109358168"
+      },
+      {
+        "file": "encode-fe-lint/src/cli.ts",
+        "hash": "15807477473434611511"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_editorconfig.ejs",
+        "hash": "5054262658540026344"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_eslintignore.ejs",
+        "hash": "8040838498785820117"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_eslintrc.js.ejs",
+        "hash": "630110372124197687"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_markdownlint.json.ejs",
+        "hash": "3317827072071809666"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_markdownlintignore.ejs",
+        "hash": "3982296804617221084"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_prettierrc.js.ejs",
+        "hash": "12618319492643173200"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_stylelintignore.ejs",
+        "hash": "14477210833256555082"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_stylelintrc.js.ejs",
+        "hash": "2546947837637860073"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_vscode/extensions.json.ejs",
+        "hash": "14135155473879082676"
+      },
+      {
+        "file": "encode-fe-lint/src/config/_vscode/settings.json.ejs",
+        "hash": "14357358291771137127"
+      },
+      {
+        "file": "encode-fe-lint/src/config/commitlint.config.js.ejs",
+        "hash": "11142469572052804657"
+      },
+      {
+        "file": "encode-fe-lint/src/config/encode-fe-lint.config.js.ejs",
+        "hash": "13877279649224534980"
+      },
+      {
+        "file": "encode-fe-lint/src/index.ts",
+        "hash": "8539536818269325155"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/eslint/doEslint.ts",
+        "hash": "9799054414114368899"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/eslint/formatESLintResults.ts",
+        "hash": "16249552540614464320"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/eslint/getESLintConfig.ts",
+        "hash": "9116763420672248666"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/eslint/getESLintConfigType.ts",
+        "hash": "16878482363683031093"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/eslint/index.ts",
+        "hash": "841740068618900724"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/index.ts",
+        "hash": "16965292104952381418"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/markdownlint/doMarkdownlint.ts",
+        "hash": "6123720189031336640"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/markdownlint/fotmatMarkdownlintResults.ts",
+        "hash": "2619035216613941881"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/markdownlint/getMarkdownlintConfig.ts",
+        "hash": "18371028479530906473"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/markdownlint/index.ts",
+        "hash": "10841246183047289342"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/prettier/doPrettier.ts",
+        "hash": "404955123915474270"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/prettier/index.ts",
+        "hash": "16788674380331537827"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/stylelint/doStylelint.ts",
+        "hash": "6668722620781255627"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/stylelint/formatStylelintResults.ts",
+        "hash": "17175243983830326906"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/stylelint/getStylelintConfig.ts",
+        "hash": "1340895006654885917"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/stylelint/getStylelintDocUrl.ts",
+        "hash": "6455367842655123683"
+      },
+      {
+        "file": "encode-fe-lint/src/lints/stylelint/index.ts",
+        "hash": "12596825862134176188"
+      },
+      {
+        "file": "encode-fe-lint/src/types.ts",
+        "hash": "1740018171850031252"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/conflict-resolve.ts",
+        "hash": "2657816678174153929"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/constants.ts",
+        "hash": "17648530640878131690"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/generate-template.ts",
+        "hash": "11855399883006705659"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/git.ts",
+        "hash": "8388417890638827881"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/log.ts",
+        "hash": "11173107202154640868"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/npm-type.ts",
+        "hash": "18278814440569937831"
+      },
+      {
+        "file": "encode-fe-lint/src/utils/print-report.ts",
+        "hash": "8310945253705429344"
+      },
+      {
+        "file": "encode-fe-lint/tsconfig.json",
+        "hash": "11701578639634903170"
+      },
+      {
+        "file": "eslint-config/.editorconfig",
+        "hash": "15212621106178501145"
+      },
+      {
+        "file": "eslint-config/.eslintignore",
+        "hash": "10367411828035397252"
+      },
+      {
+        "file": "eslint-config/.eslintrc.js",
+        "hash": "3455701586597066929"
+      },
+      {
+        "file": "eslint-config/.gitignore",
+        "hash": "4387749897038683933"
+      },
+      {
+        "file": "eslint-config/README.md",
+        "hash": "7740909425381896628"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/es5.js",
+        "hash": "9794407015169642135"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/index.js",
+        "hash": "59413595938830858"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/node.js",
+        "hash": "4354366505458309792"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/react-display-name.js",
+        "hash": "2843736256536348475"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/react.jsx",
+        "hash": "15697670365826689567"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts-import-a.ts",
+        "hash": "4992256914464290864"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts-import-b.ts",
+        "hash": "17022225666702768836"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts-node.ts",
+        "hash": "3151834281392574504"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts-react.tsx",
+        "hash": "6089621782420511078"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts-vue.vue",
+        "hash": "2645480607020799888"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/ts.ts",
+        "hash": "8212454912420089813"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/tsconfig.json",
+        "hash": "3686832742181129079"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/use-babel-eslint.jsx",
+        "hash": "17581521504007731845"
+      },
+      {
+        "file": "eslint-config/__tests__/fixtures/vue.vue",
+        "hash": "6610522596082928893"
+      },
+      {
+        "file": "eslint-config/__tests__/use-babel-eslint.test.js",
+        "hash": "13957916641262891532"
+      },
+      {
+        "file": "eslint-config/__tests__/validate-js-configs.test.js",
+        "hash": "9820841063994919651"
+      },
+      {
+        "file": "eslint-config/__tests__/validate-ts-configs.test.js",
+        "hash": "15066822234133619703"
+      },
+      {
+        "file": "eslint-config/es5.js",
+        "hash": "10711686617916515762"
+      },
+      {
+        "file": "eslint-config/essential/es5.js",
+        "hash": "12144732742752780206"
+      },
+      {
+        "file": "eslint-config/essential/index.js",
+        "hash": "1018962675885888265"
+      },
+      {
+        "file": "eslint-config/essential/react.js",
+        "hash": "9942119684194512938"
+      },
+      {
+        "file": "eslint-config/essential/rules/blacklist.js",
+        "hash": "9036641647428274479"
+      },
+      {
+        "file": "eslint-config/essential/rules/es6-blacklist.js",
+        "hash": "4876705329759864102"
+      },
+      {
+        "file": "eslint-config/essential/rules/set-style-to-warn.js",
+        "hash": "3899004649154323199"
+      },
+      {
+        "file": "eslint-config/essential/rules/ts-blacklist.js",
+        "hash": "4274164617708693192"
+      },
+      {
+        "file": "eslint-config/essential/typescript/index.js",
+        "hash": "9705162355358283756"
+      },
+      {
+        "file": "eslint-config/essential/typescript/react.js",
+        "hash": "6413210480678025117"
+      },
+      {
+        "file": "eslint-config/essential/typescript/vue.js",
+        "hash": "14059869369022342518"
+      },
+      {
+        "file": "eslint-config/essential/vue.js",
+        "hash": "6743544468503162399"
+      },
+      {
+        "file": "eslint-config/index.js",
+        "hash": "17174022432343119279"
+      },
+      {
+        "file": "eslint-config/jsx-a11y.js",
+        "hash": "8563760314956189350"
+      },
+      {
+        "file": "eslint-config/node.js",
+        "hash": "18404980916309362456"
+      },
+      {
+        "file": "eslint-config/package.json",
+        "hash": "1593608775758919468"
+      },
+      {
+        "file": "eslint-config/pnpm-lock.yaml",
+        "hash": "5989948994590209558"
+      },
+      {
+        "file": "eslint-config/react.js",
+        "hash": "17767525115639804987"
+      },
+      {
+        "file": "eslint-config/rules/base/best-practices.js",
+        "hash": "6471232069638693014"
+      },
+      {
+        "file": "eslint-config/rules/base/es6.js",
+        "hash": "11693959055091308861"
+      },
+      {
+        "file": "eslint-config/rules/base/possible-errors.js",
+        "hash": "17759192186752093424"
+      },
+      {
+        "file": "eslint-config/rules/base/strict.js",
+        "hash": "10062161310999299100"
+      },
+      {
+        "file": "eslint-config/rules/base/style.js",
+        "hash": "8705944108794182881"
+      },
+      {
+        "file": "eslint-config/rules/base/variables.js",
+        "hash": "5605620059606107566"
+      },
+      {
+        "file": "eslint-config/rules/es5.js",
+        "hash": "11963940688509487771"
+      },
+      {
+        "file": "eslint-config/rules/imports.js",
+        "hash": "15409018398240644308"
+      },
+      {
+        "file": "eslint-config/rules/jsx-a11y.js",
+        "hash": "8545188736333553506"
+      },
+      {
+        "file": "eslint-config/rules/node.js",
+        "hash": "5475170152758927397"
+      },
+      {
+        "file": "eslint-config/rules/react.js",
+        "hash": "2696880709722489739"
+      },
+      {
+        "file": "eslint-config/rules/typescript.js",
+        "hash": "12454515298118718460"
+      },
+      {
+        "file": "eslint-config/rules/vue.js",
+        "hash": "8156360905483121649"
+      },
+      {
+        "file": "eslint-config/typescript/index.js",
+        "hash": "14337376996331373024"
+      },
+      {
+        "file": "eslint-config/typescript/node.js",
+        "hash": "14851184652298101808"
+      },
+      {
+        "file": "eslint-config/typescript/react.js",
+        "hash": "2719948306291929458"
+      },
+      {
+        "file": "eslint-config/typescript/vue.js",
+        "hash": "11919257089777926453"
+      },
+      {
+        "file": "eslint-config/vue.js",
+        "hash": "14817206470586940895"
+      },
+      {
+        "file": "eslint-plugin/README.md",
+        "hash": "293536772485308943"
+      },
+      {
+        "file": "eslint-plugin/__tests__/eslint-plugin.test.js",
+        "hash": "16251925612438372412"
+      },
+      {
+        "file": "eslint-plugin/configs/recommended.js",
+        "hash": "7565753551700840328"
+      },
+      {
+        "file": "eslint-plugin/index.js",
+        "hash": "2671590291212587709"
+      },
+      {
+        "file": "eslint-plugin/lib/eslint-plugin.js",
+        "hash": "8221077138075897646"
+      },
+      {
+        "file": "eslint-plugin/package.json",
+        "hash": "16624705562955848147"
+      },
+      {
+        "file": "eslint-plugin/rules/no-broad-semantic-versioning.js",
+        "hash": "5759035537009022853"
+      },
+      {
+        "file": "eslint-plugin/rules/no-http-url.js",
+        "hash": "13554181389210459375"
+      },
+      {
+        "file": "eslint-plugin/rules/no-js-in-ts-project.js",
+        "hash": "5758813264797895525"
+      },
+      {
+        "file": "eslint-plugin/rules/no-secret-info.js",
+        "hash": "2237991749311021173"
+      },
+      {
+        "file": "eslint-plugin/test/rules/no-broad-semantic-versioning.test.js",
+        "hash": "1787027743677049038"
+      },
+      {
+        "file": "eslint-plugin/test/rules/no-http-url.test.js",
+        "hash": "13632377762118281119"
+      },
+      {
+        "file": "eslint-plugin/test/rules/no-js-in-ts-project.test.js",
+        "hash": "17399982203506520156"
+      },
+      {
+        "file": "eslint-plugin/test/rules/no-secret-info.test.js",
+        "hash": "15095397568190893139"
+      }
+    ]
+  },
+  "externalNodesHash": "3244421341483603138"
+}

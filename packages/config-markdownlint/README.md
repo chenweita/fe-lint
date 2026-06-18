@@ -1,26 +1,15 @@
-<!--
- * @Author: chenweita 1320673491@qq.com
- * @Date: 2026-06-01 14:16:00
- * @LastEditors: chenweita 1320673491@qq.com
- * @LastEditTime: 2026-06-01 14:21:57
- * @FilePath: /fe-lint/packages/config-markdownlint/README.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
-# `config-markdownlint`
+# encode-fe-markdownlint-config
 
-> TODO: description
+>  文档 规范
 
-## Usage
-
-```
-const configMarkdownlint = require('config-markdownlint');
-
-// TODO: DEMONSTRATE API
-```
+支持配套的 [markdownlint 可共享配置](https://www.npmjs.com/package/markdownlint#optionsconfig)。
 
 ## 安装
+
+需要先行安装 [markdownlint](https://www.npmjs.com/package/markdownlint)：
+
 ```bash
-npm install encode-huahua-config-markdownlint markdownlint --save-dev
+npm install encode-fe-markdownlint-config markdownlint --save-dev
 ```
 
 ## 使用

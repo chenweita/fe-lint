@@ -1,5 +1,4 @@
-
-# `eslint-plugin`
+# encode-fe-eslint-plugin
 
 ## 安装
 

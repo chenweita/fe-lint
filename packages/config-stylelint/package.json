@@ -1,7 +1,7 @@
 {
-  "name": "encode-huahua-stylelint-config",
+  "name": "encode-fe-stylelint-config",
   "version": "1.0.0",
-  "description": "印客学院 CSS规范",
+  "description": " CSS规范",
   "main": "index.js",
   "keywords": [
     "encode",
@@ -20,8 +20,10 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "stylelint": "^14.3.0",
-    "stylelint-scss": "^4.1.0"
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.9",
+    "stylelint": "14.16.1",
+    "stylelint-scss": "4.7.0"
   },
   "repository": {
     "type": "git",

@@ -180,4 +180,14 @@ module.exports = {
 
   // 忽略以下类型的文件，stylelint 不会检查它们
   ignoreFiles: ['&zwnj;**/*.js', '**&zwnj;/*.jsx', '&zwnj;**/*.ts', '**&zwnj;/*.tsx'],
+  // overrides: [
+  //   {
+  //     files: ['&zwnj;**/*.scss', '**&zwnj;/*.sass'],
+  //     customSyntax: 'postcss-scss',
+  //   },
+  //   {
+  //     files: ['**/*.less'],
+  //     customSyntax: 'postcss-less', // 如果你也检查 less 文件
+  //   },
+  // ],
 };
